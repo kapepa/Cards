@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  div(class="col s6 offset-s3")
+    .card
+      .card-image
+        img(src= isCourse.url alt= isCourse.name)
+        span(class="card-title")= isCourse.name
+      .card-content
+        span Price:
+        span(class="price")= isCourse.price
+      .card-action
+        form(method="post" action="/card/append")
+          #isID
+            if isID == isCourse.userID
+              a(href="/add/edit/"+isCourse._id) Edit
+          input(type="hidden" name="_csrf" value=csrfToken)		
+          input(type="hidden" name="courseID" value=isCourse._id)
+          button(type="submit" class="btn") in card

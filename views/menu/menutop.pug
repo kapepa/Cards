@@ -1,0 +1,26 @@
+nav
+  .container
+    .row
+      div(class="nav-wrapper")
+        a(href="#" class="brand-logo") Logo
+        ul(id="nav-mobile" class="hide-on-med-and-down")
+          li(class= isHome ? "active" : "")
+            a(href="/") Home
+          li(class= isCourses ? "active" : "")
+            a(href="/courses") Courses
+          #isAuth
+            if isAuth
+              li(class= isAdd ? "active" : "")
+                a(href="/add") Add
+              li(class= isCard ? "active" : "")
+                a(href="/card") Card
+              li(class= isOrder ? "active" : "")
+                a(href="/order") Order
+              li(class= isProfile ? "active" : "")
+                a(href="/users/profile") Profile
+              li
+                a(href="/users/logout") Logout
+            else
+              li(class= isUsers ? "active" : "")
+                a(href="/users") Login
+

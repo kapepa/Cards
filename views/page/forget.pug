@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  #isError
+    if isError
+      div(class="col s6 offset-s3")
+        p(class="error")= isError
+  form(class="col s6 offset-s3" method="post" action="/users/restore")
+    .row
+      div(class="input-field col s8 offset-s2")
+        input(id="email" name="email" type="email" class="validate")
+        label(for="email") Email
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s8 offset-s2")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        button(type="submit" class="btn") Send to Email

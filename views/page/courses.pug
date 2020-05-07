@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  #isList
+    if isList
+      each key in isList
+        div(class="col s6 offset-s3")
+          .card
+            .card-image
+              img(src= key.url alt= key.name)
+              span(class="card-title")= key.name
+            .card-content
+              span Price:
+              span(class="price")= key.price
+            .card-action
+              form(method="post" action="/card/append")
+                a(href="/single/"+key._id) Read more...
+                #isID
+                  if isID == key.userID
+                    a(href="/add/edit/"+key._id) Edit
+                input(type="hidden" name="courseID" value=key._id)
+                input(type="hidden" name="_csrf" value=csrfToken)
+                button(type="submit" class="btn") in card
+    else
+      p List courses are empty!

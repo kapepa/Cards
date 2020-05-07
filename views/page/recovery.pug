@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  #isError
+    if isError
+      div(class="col s6 offset-s3")
+        p(class="error")= isError
+  form(class="col s12" method="post" action="/users/update")
+    .row
+      div(class="input-field col s6 offset-s3")
+        input(id="password" name="password" type="password" class="validate")
+        label(for="password") Password
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s6 offset-s3")
+        input(id="confirmed" name="confirmed" type="password" class="validate")
+        label(for="confirmed") Confirmed
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s6 offset-s3")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="userID" value=isUser._id)
+        input(type="hidden" name="token" value=isUser.token)
+        button(type="submit" class="btn") Recovery
+

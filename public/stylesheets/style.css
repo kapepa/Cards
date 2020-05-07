@@ -1,0 +1,38 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+.error{
+	background-color: coral;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
+	max-width: 600px;
+}
+nav .brand-logo{
+	position: relative;
+}
+.nav-wrapper{
+	display: flex;
+	justify-content: space-between;
+}
+#nav-mobile{
+	display: flex;
+}
+.card-title{
+	background-color: darkgoldenrod;
+}
+.card-action form{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.price{
+	margin-left: 20px;
+	font-size: 20px;
+}
+.card-image img{
+	max-height: 300px;
+}

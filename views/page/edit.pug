@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  #isError
+    if isError
+      div(class="col s6 offset-s3")
+        p(class="error")= isError
+  form(class="col s6 offset-s3" method="post" action="/add/addition")
+    .row
+      div(class="input-field col s12")
+        input(id="name" name="name" type="text" class="validate" required value=isCourse.name)
+        label(for="email") Name
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s12")
+        input(id="price" name="price" type="number" class="validate" required value=isCourse.price)
+        label(for="email") Price
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s12")
+        input(id="url" name="url" type="url" class="validate" required value=isCourse.url)
+        label(for="url") Url
+        span(class="helper-text" data-error="wrong")
+      div(class="input-field col s12")
+        input(type="hidden" name="courseID" value=isCourse._id)
+        input(type="hidden" name="_csrf" value=csrfToken)
+        button(type="submit" class="btn") Addition

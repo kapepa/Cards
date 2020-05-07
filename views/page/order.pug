@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  #isList
+    if isList
+      each key in isList
+        div(class="col s8 offset-s2")
+          div(class="card blue-grey darken-1")
+            div(class="card-content white-text")
+              span(class="card-title")= key.name
+              span(class="date")= key.date
+              br
+              span(class="price")= key.price
+            .card-action
+              a(href="/single/"+key.id) This is a link
+    else
+      p Order exist empty

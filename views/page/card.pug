@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  #isList
+    if isList
+      table
+        thead
+          tr
+            th Name
+            th Price
+            th Count
+            th Total
+            th Action
+        tbody(id="tbody")
+          each key in isList
+            tr
+              td
+                h6= key.name
+              td(class="price")= key.price
+              td= key.cnt
+              td(class="price")= key.price * key.cnt
+              td
+                form(enctype="multipart/form-data")
+                  input(type="hidden" name="courseID" value=key.id)
+                  input(type="hidden" name="_csrf" value=csrfToken)
+                  button(class="btn") Decrease
+        tfoot
+          tr
+            td(colspan="3")
+              h6 Total cost:
+            td(class="price")= isTotal
+            td
+              form(method="get" action="/order/done")
+                button(class="btn") Order
+    else
+      p In Card not purchase
